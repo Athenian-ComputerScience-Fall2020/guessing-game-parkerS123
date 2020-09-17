@@ -16,17 +16,22 @@ number = random.randint(0,10)
 number_of_guesses = 1
 
 guess = int(input("Guess a number 0 to 10: "))
- 
-while(number_of_guesses < 5): 
-    if number == guess: 
-        print("You guessed it!!!!")
-    elif number <= guess:
-        print("Your number is too high")
-        guess = int(input("Guess again... "))
-    else:
-        print("Your number is too low")
-        guess = int(input("Guess again... "))
-    number_of_guesses = number_of_guesses + 1
 
-print("The number was " + str(number))
+try:
+
+    while(number_of_guesses < 5): 
+        if number == guess: 
+            print("You guessed it!!!!")
+        elif number <= guess:
+            print("Your number is too high")
+            guess = int(input("Guess again... "))
+        else:
+            print("Your number is too low")
+            guess = int(input("Guess again... "))
+        number_of_guesses = number_of_guesses + 1
+
+    print("The number was " + str(number))
+
+except: 
+    print("Please enter a number ")
 
