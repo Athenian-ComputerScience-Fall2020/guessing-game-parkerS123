@@ -15,7 +15,7 @@ number = random.randint(0,10)
 
 number_of_guesses = 1
 
-
+print(number)
 
 try:
     guess = int(input("Guess a number 0 to 10 in 5 guesses: "))
@@ -33,4 +33,6 @@ try:
     print("The number was " + str(number))
 
 except: 
-    print("Please enter a number ")   
+    guess = int(input("You have one more guess to enter a NUMBER ")) 
+    if number == guess:
+        print("WOW! You got it")  
