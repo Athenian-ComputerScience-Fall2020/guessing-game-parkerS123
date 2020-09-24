@@ -11,28 +11,49 @@ Use this file to write an "open" version of the game (no test code or defined fo
 
 '''
 import random
-number = random.randint(0,10)
 
-number_of_guesses = 1
+play_again = 0
+#allows the user to play again if they enter 0 at the end
+while play_again == 0:
 
-print(number)
+#controls the range of the number being guessed
+    lowest_number = int(input("Enter the lowest number you would like to guess from: "))
+    highest_number = int(input("Enter the highest number you would like to guess from: "))
+#range doesn't include last number so add 1 to highest number
+    highest_number = highest_number + 1
 
-try:
-    guess = int(input("Guess a number 0 to 10 in 5 guesses: "))
+    number = random.randint(lowest_number,highest_number)
+    number_of_guesses = 1
+# User controls how many turns they have to guess
+    turns = int(input("Enter the number of turns you would like to guess: "))
+    print(number)
+
+ 
+
+    try:
+        guess = int(input("Guess a number! If you get it on the first try your AMAZING: "))
+    # number_of_guesses < turns because they already had 1 guess
+        while(number_of_guesses < turns): 
+            if number == guess: 
+                print("You guessed it!!!!")
+                break 
+            elif number <= guess:
+                print("Your number is too high")
+                guess = int(input("Guess again... "))
+            else:
+                print("Your number is too low")
+                guess = int(input("Guess again... "))
+            number_of_guesses = number_of_guesses + 1
+        print("The number was " + str(number))
+
+    except: 
+        guess = int(input("You have one more guess to enter a NUMBER: ")) #allows them 1 more guess if they enter a string
+        if number == guess:
+            print("WOW! You got it") 
+        else: 
+            print("The number was " + str(number)) 
     
-    while(number_of_guesses < 5): 
-        if number == guess: 
-            print("You guessed it!!!!")
-        elif number <= guess:
-            print("Your number is too high")
-            guess = int(input("Guess again... "))
-        else:
-            print("Your number is too low")
-            guess = int(input("Guess again... "))
-        number_of_guesses = number_of_guesses + 1
-    print("The number was " + str(number))
+    play_again = int(input("If you want to play again enter 0, if you would like to stop enter 1: ")) #play again or no
 
-except: 
-    guess = int(input("You have one more guess to enter a NUMBER ")) 
-    if number == guess:
-        print("WOW! You got it")  
+if play_again == 1: 
+    print("tHaAk YoU fOr PlAyInG!")
