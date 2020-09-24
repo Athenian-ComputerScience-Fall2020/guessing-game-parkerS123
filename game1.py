@@ -26,9 +26,7 @@ while play_again == 0:
     number_of_guesses = 1
 # User controls how many turns they have to guess
     turns = int(input("Enter the number of turns you would like to guess: "))
-    print(number)
-
- 
+    # print(number)
 
     try:
         guess = int(input("Guess a number! If you get it on the first try your AMAZING: "))
@@ -37,6 +35,9 @@ while play_again == 0:
             if number == guess: 
                 print("You guessed it!!!!")
                 break 
+            elif guess < lowest_number or guess >= highest_number:
+                print("That guess was out of range")
+                guess = int(input("Guess again... "))
             elif number <= guess:
                 print("Your number is too high")
                 guess = int(input("Guess again... "))
