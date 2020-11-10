@@ -14,8 +14,8 @@ import random
 
 play_again = 0
 #allows the user to play again if they enter 0 at the end
-while play_again == 0:
 
+while play_again == 0:
 #controls the range of the number being guessed
     lowest_number = int(input("Enter the lowest number you would like to guess from: "))
     highest_number = int(input("Enter the highest number you would like to guess from: "))
@@ -26,7 +26,7 @@ while play_again == 0:
     number_of_guesses = 1
 # User controls how many turns they have to guess
     turns = int(input("Enter the number of turns you would like to guess: "))
-    # print(number)
+    print(number)
 
     try:
         guess = int(input("Guess a number! If you get it on the first try your AMAZING: "))
